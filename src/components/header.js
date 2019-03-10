@@ -3,7 +3,8 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const HeadreContainer =  styled.header`
+
+const HeaderContainer =  styled.header`
   ${props => props.background};
   margin-bottom: 1.4rem;
 `;
@@ -25,25 +26,24 @@ const StyledLink = styled(Link)`
 
 const BACKGROUND = 'background-color: #20232a';
 
-
-const Header = ({ siteTitle }) => (
-  <HeadreContainer>
+const Header = ({ background, siteTitle }) => (
+  <HeaderContainer background={background}>
     <HeaderWrapper>
       <Heading1>
         <StyledLink to='/'>{siteTitle}</StyledLink>
       </Heading1>
     </HeaderWrapper>
-  </HeadreContainer>
+  </HeaderContainer>
 );
+
+Header.defaultProps = {
+  background: BACKGROUND,
+  siteTitle: `Polling App`,
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
   background: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: `Polling App`,
-  background: BACKGROUND,
 };
 
 export default Header;
