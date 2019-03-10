@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
@@ -21,7 +22,7 @@ const BaseContainerStyles = styled(Container)`
 
 const Layout = ({ children }) => (
   <StaticQuery
-    query={graphql`
+    query={graphql` 
       query SiteTitleQuery {
         site {
           siteMetadata {
@@ -32,14 +33,19 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Helmet 
+          title={data.site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: 'Sample' },
+            { name: 'keywords', content: 'sample, something'}
+          ]}
+        />
+        <Header
+         siteTitle={data.site.siteMetadata.title}
+          background='background-image: linear-gradient(116deg, #08AEEA 0%, #2AF598 100%)'
+        />
         <BaseContainerStyles>
           <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
         </BaseContainerStyles>
       </>
     )}
@@ -48,6 +54,8 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  data: PropTypes.object,
+
 };
 
 export default Layout;
