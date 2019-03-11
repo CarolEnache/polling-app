@@ -33,16 +33,17 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Helmet 
+        <Helmet
           title={data.site.siteMetadata.title}
           meta={[
             { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something'}
+            { name: 'keywords', content: 'sample, something' }
           ]}
         />
         <Header
-         siteTitle={data.site.siteMetadata.title}
-          background='background-image: linear-gradient(116deg, #08AEEA 0%, #2AF598 100%)'
+          siteTitle={data.site.siteMetadata.title}
+          background='
+            background-image: linear-gradient(116deg, #08AEEA 0%, #2AF598 100%)'
         />
         <BaseContainerStyles>
           <main>{children}</main>
@@ -50,7 +51,7 @@ const Layout = ({ children }) => (
       </>
     )}
   />
-);
+)
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

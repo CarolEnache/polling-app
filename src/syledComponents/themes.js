@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Button = styled.button`
     padding: 5px 25px;
@@ -16,4 +16,4 @@ export const Button = styled.button`
     &:hover {
         filter: hue-rotate(45deg);
     }
-`;  
+`
