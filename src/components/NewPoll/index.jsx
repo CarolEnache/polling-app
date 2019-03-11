@@ -55,7 +55,7 @@ const SortableItem = SortableElement(
       ) : (
         text
       )}
-      <ActionItem 
+      <ActionItem k
         editing
         onClick={() => onDelete(id)}
         right={40}
