@@ -66,3 +66,30 @@ const SortableItem = SortableElement(
     </OptionItemContainer>
   )
 )
+
+const SortableList = SortableContainer(({ options, ...props}) => {
+  return (
+    <OptionsContainer>
+      {options.filter(Boolean).map((option, index) => {
+        return (
+          <SortableItem {...option} {...props} index={index} key={option.id} />
+        );
+      })}
+    </OptionsContainer>
+  )
+})
+
+const NewPoll = props => (
+  <SortableList {...props} lockAxis='y' useDragHandle lockToContainerEdges />
+)
+
+NewPoll.PropTypes = {
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onToggleEdit: PropTypes.func.isRequired,
+  onTextChange: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
+  onSortEnd: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+}
+
+export default NewPoll;
