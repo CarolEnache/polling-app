@@ -7,7 +7,7 @@ import {
     SortableHandle,
 } from "react-sortable-hoc";
 
-const OptionsContainer = styled.li`
+const OptionsContainer = styled.ul`
     list-style: none;
     padding: 0;
     margin: 0 0 30px;
@@ -92,4 +92,4 @@ NewPoll.PropTypes = {
   onDelete: PropTypes.func.isRequired,
 }
 
-export default NewPoll;
+export default NewPoll
